@@ -1,7 +1,5 @@
 import styled, { createGlobalStyle, keyframes } from 'styled-components';
 import theme from './theme';
-import bg from '@assets/concrete_seamless.jpg';
-import colors from './colors';
 
 export const maxWidthStructureDesktopLarge = '1360px';
 export const maxWidthStructureDesktopMedium = '1200px';
