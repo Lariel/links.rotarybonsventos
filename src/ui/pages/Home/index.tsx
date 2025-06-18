@@ -22,28 +22,28 @@ export default function Home() {
 			<ContentStyled className='page-links'>
 				<VerticalLinksStyled>
 					{linkList.map(link => (
-						link.label && <Link key={link.id} className='vertical-link' to={link.value}>{link.label}</Link>
+						link.isActive && link.label && <Link key={link.id} className='vertical-link' to={link.value}>{link.label}</Link>
 					))}
 					<div className='social-links structure-mobile'>
-						<a href={linkList[0].value} target='_blank'>
+						{linkList[0].isActive && <a href={linkList[0].value} target='_blank'>
 							<img
 								className='instagram-icon'
 								src={icon_instagram}
 								alt={linkList[0].description} />
-						</a>
+						</a>}
 
-						<a href={linkList[1].value} target='_blank'>
+						{linkList[1].isActive && <a href={linkList[1].value} target='_blank'>
 							<img
 								className='linkedin-icon'
 								src={icon_linkedin}
 								alt={linkList[1].description} />
-						</a>
+						</a>}
 
-						<a href={linkList[2].value}>
+						{linkList[2].isActive && <a href={linkList[2].value}>
 							<img
 								className='email-icon'
 								src={icon_mail} alt={linkList[2].description} />
-						</a>
+						</a>}
 
 					</div>
 				</VerticalLinksStyled>
