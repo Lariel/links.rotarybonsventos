@@ -1,4 +1,4 @@
-interface Link {
+export interface ILink {
 	id: number,
 	isActive: boolean,
 	label?: string,
@@ -6,44 +6,26 @@ interface Link {
 	description?: string
 }
 
-export const linkList: Link[] = [
+export const linkListDefault: ILink[] = [
 	{
 		id: 0,
 		isActive: true,
 		value: 'https://www.instagram.com/rotarybonsventos',
+		label: '',
 		description: 'Acesse nosso Instagram'
 	},
 	{
-		id: 1,
+		id: 0,
 		isActive: true,
 		value: 'https://www.linkedin.com/company/rotary-club-de-osorio-bons-ventos',
+		label: '',
 		description: 'Acesse nosso LinkedIn'
 	},
 	{
-		id: 2,
+		id: 0,
 		isActive: true,
 		value: 'mailto:rotarybonsventos@gmail.com',
+		label: '',
 		description: 'Envie um e-mail'
-	},
-	{
-		id: 3,
-		isActive: true,
-		label: 'Contribua',
-		value: 'https://www.rotarybonsventos.org.br/contribua',
-		description: ''
-	},
-	{
-		id: 4,
-		isActive: true,
-		label: 'Projetos',
-		value: 'https://www.rotarybonsventos.org.br/projetos',
-		description: 'Conheça nossos projetos'
-	},
-	{
-		id: 5,
-		isActive: true,
-		label: 'Fale Conosco',
-		value: 'https://www.rotarybonsventos.org.br/contato',
-		description: 'Conheça mais formas de entrar em contato'
 	}
 ]
