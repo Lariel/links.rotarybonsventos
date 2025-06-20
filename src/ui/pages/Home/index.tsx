@@ -1,16 +1,22 @@
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { ContainerStyled, ContentStyled } from '@ui/styles/GlobalStyles';
 import { VerticalLinksStyled } from './styles';
 import icon_instagram from '@assets/icon_instagram.svg';
 import icon_linkedin from '@assets/icon_linkedin.svg';
 import icon_mail from '@assets/icon_mail.svg';
-import { linkList } from '@app/model/Links';
+import { ILink, linkListDefault } from '@app/model/Links';
+import { fetchLinks } from '@app/services/LinksService';
 
 export default function Home() {
 
+	const [ linkList, setLinksList ] = useState<ILink[]>(linkListDefault)
+
 	useEffect(() => {
 		console.log('Start Home');
+
+		fetchLinks().then(linkList => setLinksList(linkList));
+		console.log('linkList:',linkList);
 
 		return () => {
 			console.log('Exit Home');
