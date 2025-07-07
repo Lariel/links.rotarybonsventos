@@ -12,6 +12,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: npm ci && npm run build
+        env:
+          VITE_APIKEY: ${{ secrets.APIKEY }}
+          VITE_APPID: ${{ secrets.APPID }}
+          VITE_AUTHDOMAIN: ${{ secrets.AUTHDOMAIN }}
+          VITE_MEASUREMENTID: ${{ secrets.MEASUREMENTID }}
+          VITE_MESSAGINGSENDERID: ${{ secrets.MESSAGINGSENDERID }}
+          VITE_PROJECTID: ${{ secrets.PROJECTID }}
+          VITE_STORAGEBUCKET: ${{ secrets.STORAGEBUCKET }}
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
