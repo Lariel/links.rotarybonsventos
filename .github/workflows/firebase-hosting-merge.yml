@@ -2,6 +2,14 @@
 # https://github.com/firebase/firebase-tools
 
 name: Deploy to Firebase Hosting on merge
+env:
+  VITE_APIKEY: ${{ secrets.APIKEY }}
+  VITE_APPID: ${{ secrets.APPID }}
+  VITE_AUTHDOMAIN: ${{ secrets.AUTHDOMAIN }}
+  VITE_MEASUREMENTID: ${{ secrets.MEASUREMENTID }}
+  VITE_MESSAGINGSENDERID: ${{ secrets.MESSAGINGSENDERID }}
+  VITE_PROJECTID: ${{ secrets.PROJECTID }}
+  VITE_STORAGEBUCKET: ${{ secrets.STORAGEBUCKET }}
 on:
   push:
     branches:
@@ -14,16 +22,8 @@ jobs:
         uses: actions/checkout@v4
       - name: Build
         run: npm ci && npm run build
-        env:
-          VITE_APIKEY: ${{ secrets.APIKEY }}
-          VITE_APPID: ${{ secrets.APPID }}
-          VITE_AUTHDOMAIN: ${{ secrets.AUTHDOMAIN }}
-          VITE_MEASUREMENTID: ${{ secrets.MEASUREMENTID }}
-          VITE_MESSAGINGSENDERID: ${{ secrets.MESSAGINGSENDERID }}
-          VITE_PROJECTID: ${{ secrets.PROJECTID }}
-          VITE_STORAGEBUCKET: ${{ secrets.STORAGEBUCKET }}
       - name: Print Envs
-        run: echo "VITE_APIKEY is  $VITE_APIKEY"
+        run: echo "VITE_APIKEY is $VITE_APIKEY"
       - name: Deploy
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
